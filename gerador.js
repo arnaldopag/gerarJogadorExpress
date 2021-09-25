@@ -1,7 +1,16 @@
-const dados = require('./dados.json');
+const dados = require("./dados.json");
 
-const geraJogador = function(req,res){
-    
-}
+const gerarJogador = function () {
+    const jogador = {
+        nome: dados.nome[parseInt(Math.random() * dados.nome.length)],
+        sobreNome:
+            dados.sobrenome[parseInt(Math.random() * dados.sobrenome.length)],
+        idade: parseInt(Math.random() * 23 + 17),
+        posicao: dados.posicao[parseInt(Math.random() * dados.posicao.length)],
+        clube: dados.clube[parseInt(Math.random() * dados.clube.length)],
+    };
+    jogador.mesagem = `O ${jogador.nome} ${jogador.sobreNome}  eh ${jogador.posicao} de ${jogador.idade} anos jogador do ${jogador.clube}`;
+    return jogador;
+};
 
-
+module.exports = gerarJogador;
